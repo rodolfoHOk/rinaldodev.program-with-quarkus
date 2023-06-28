@@ -1,6 +1,6 @@
-# Program with Quarkus
+# Program with Quarkus 
 
-> Quarkus Study Project by RudolfHiOk and RinaldoDev
+> Quarkus Study Project by RudolfHiOk
  
 ## Technologies
 
@@ -18,6 +18,13 @@
 - Install Quarkus CLI with sdkman: sdk install quarkus
 - Run project for development: quarkus dev
 - Add extension: quarkus extension add <extension-name>
+- Run tests: quarkus test
+
+## Test coverage
+
+- Install jacoco extension with Quarkus CLI: quarkus extension add jacoco
+- Run test coverage: ./mvnw verify
+- Open: target/jacoco-report/index.html
 
 ## Util links
 
