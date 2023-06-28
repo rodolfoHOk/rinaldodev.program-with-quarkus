@@ -1,4 +1,33 @@
-# program-with-quarkus
+# Program with Quarkus
+
+> Quarkus Study Project by RudolfHiOk and RinaldoDev
+ 
+## Technologies
+
+- Java 17
+- Quarkus 3.1
+- Hibernate ORM + Panache
+- PostgreSQL
+
+## Create a Quarkus Project
+
+- Access: https://code.quarkus.io/
+
+## Quarkus CLI (https://quarkus.io/guides/cli-tooling)
+
+- Install Quarkus CLI with sdkman: sdk install quarkus
+- Run project for development: quarkus dev
+- Add extension: quarkus extension add <extension-name>
+
+## Util links
+
+- [Quarkus RestEasy reactive guide](https://quarkus.io/guides/resteasy-reactive)
+- [Quarkus Hibernate ORM + Panache guide](https://quarkus.io/guides/hibernate-orm-panache)
+- [Quarkus all properties](https://quarkus.io/guides/all-config)
+- [Quarkus datasource guide](https://quarkus.io/guides/datasource)
+- [Quarkus Dev Services](https://quarkus.io/guides/dev-services)
+
+# Quarkus default README.md
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
