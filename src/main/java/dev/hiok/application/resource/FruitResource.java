@@ -1,7 +1,8 @@
 package dev.hiok.application.resource;
 
 import dev.hiok.domain.entity.Fruit;
-import jakarta.transaction.Transactional;
+import dev.hiok.domain.service.FruitService;
+import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -13,20 +14,19 @@ import java.util.List;
 @Path("/fruits")
 public class FruitResource {
 
+    @Inject
+    FruitService fruitService;
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Fruit> list() {
-        return Fruit.listAll();
+        return fruitService.list();
     }
 
     @POST
-    @Transactional
     @Produces(MediaType.APPLICATION_JSON)
     public void create(Fruit fruitInput) {
-        var fruit = new Fruit();
-        fruit.name = fruitInput.name;
-        fruit.quantity = fruitInput.quantity;
-        fruit.persist();
+        fruitService.create(fruitInput);
     }
 
 }
