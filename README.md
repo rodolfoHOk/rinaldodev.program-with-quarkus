@@ -26,6 +26,48 @@
 - Run test coverage: ./mvnw verify
 - Open: target/jacoco-report/index.html
 
+## Build
+
+### jar file
+
+- build running tests: ./mvnw package
+- build without running tests: ./mvnw package -DskipTests
+
+### container image
+
+- install jib extension with Quarkus CLI: quarkus extension add container-image-jib
+- add in application.properties: quarkus.container-image.build=true
+- build running tests: ./mvnw package
+- build without running tests: ./mvnw package -DskipTests
+- check container image <user/project-name>: docker image ls
+
+### container image to Kubernetes
+
+- install quarkus-kubernetes extension with Quarkus CLI: quarkus extension add quarkus-kubernetes
+- build running tests: ./mvnw package
+- build without running tests: ./mvnw package -DskipTests
+- check folder target/kubernetes has: kubernetes.yml and kubernetes.json
+
+## Run
+
+### jar file
+
+- java -jar target/quarkus-app/quarkus-run.jar
+
+### container image with Docker
+
+- docker run --name <container-name> -p 8080:8080 -d <container-image-name>
+
+### Kubernetes with minikube
+
+- install minikube: see Util links minikube
+- start a k8s cluster: minikube start
+- check k8s version: kubectl version
+- set cluster internal docker: minikube docker-env / minikube -p minikube docker-env
+- add in application.properties: quarkus.kubernetes.image-pull-policy=never
+- build without running tests: ./mvnw package -DskipTests
+- kubectl apply -f target/kubernetes/kubernetes.json
+
 ## Util links
 
 - [Quarkus RestEasy reactive guide](https://quarkus.io/guides/resteasy-reactive)
@@ -33,6 +75,9 @@
 - [Quarkus all properties](https://quarkus.io/guides/all-config)
 - [Quarkus datasource guide](https://quarkus.io/guides/datasource)
 - [Quarkus Dev Services](https://quarkus.io/guides/dev-services)
+- [Quarkus container image](https://quarkus.io/guides/container-image)
+- [Quarkus deploy to Kubernetes](https://quarkus.io/guides/deploying-to-kubernetes)
+- [minikube](https://minikube.sigs.k8s.io/docs/start/)
 
 # Quarkus default README.md
 
